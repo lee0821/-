@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script> -->
+  <title>Document</title>
+</head>
+<body>
+  <div id="box"></div>
+  <button onclick="addName('lee',21)">add lee</button>
+  <button onclick="addName('bin',22)">add bin</button>
+  <a href="./index1.html" onclick="tijiao()">to web 2</a>
+
+  <script>
+    // var box = $('#box')
+    // var btn = $('#btn')
+    var box = document.getElementById('box'),
+    btn = document.getElementById('btn'),
+    value = ''
+
+    // btn.addEventListener('click',()=>{
+    //   value = value + 'lee '
+    //   box.innerHTML = value
+    // })
+    function addName(name,age){
+      value = value + name + ':'+ age + ' '
+      box.innerHTML = value
+    }
+
+    function tijiao(){
+      sessionStorage.setItem('value',value)
+    }
+  </script>
+</body>
+</html>

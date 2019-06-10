@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/cart.css">
+  <title>Document</title>
+  <style>
+    .table{
+      width:800px;
+      height: 300px;
+      background: #fff;
+      display: flex;
+    }
+    .table tr th{
+      width: 200px;
+      height: 50px;
+    }
+    .table tr td{
+      width: 200px;
+      height: 30px;
+      text-align: center;
+      background: linear-gradient(to left, #fff, #000);
+    }
+    .table tr td:nth-child(2){
+      width: 300px;
+      background: #f00;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="cart-container">
+    <div class="list-top">  
+      <div class="choose-all">
+          <input type="checkbox">全选
+      </div>
+      <span class="pro-info">商品信息</span>
+      <div class="pro-mes">
+        <span>单价</span>
+        <span>数量</span>
+        <span>金额</span>
+        <span>操作</span>
+      </div>
+    </div>
+
+    <div id="cart-list">
+      <div class="pro-item">
+        <input type="checkbox">
+        <div class="pro-desc">商品详情</div>
+
+        <div class="pro-operation">
+          <div><span class="price">price</span></div>
+          
+          <div class="pro-computed">
+            <a href="">-</a>
+            <input type="text" class="pro-count" value="1">
+            <a href="">+</a>
+          </div>
+
+          <div><span class="item-price">item-price</span></div>
+          
+          <div><a href="" class="">删除</a></div>
+          
+        </div>
+      </div>
+    <div class="total">
+      
+    </div>
+  </div>
+
+
+  <table class="table">
+    <tr>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><div>0</div></td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+  </table>
+
+  <script>
+    var carData = sessionStorage.getItem('carData')
+    document.getElementById('cart').innerHTML = carData
+    console.log(carData)
+  </script>
+</body>
+</html>
