@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box-2"></div>
+  <a href="./index0.html">to web 1</a>
+
+  <script>
+    var value = sessionStorage.getItem('value'),
+    valueArr = [],
+    dataArr = [],
+    box2 = document.getElementById('box-2');
+    console.log(typeof(value),value)
+
+    valueArr = value.split(' ')  
+    valueArr.pop()
+    valueArr.forEach(element => {
+      // console.log(element)      
+      let person = {},
+      data = element.split(':')
+      person[data[0]] = data[1]
+      dataArr.push(person)
+      console.log(dataArr)
+    });
+    function show(){
+      for (let i = 0,len = valueArr.length-1; i < len; i++) {
+        console.log(valueArr[i])
+      }
+    }
+
+    window.onload = ()=>{
+      show()
+    }
+  </script>
+</body>
+</html>

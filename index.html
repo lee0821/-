@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1217556_ioz55bnj0ob.css">
+  <style>
+    .box{
+      width: 400px;
+      height: 800px;
+      background: #ff0;
+      margin:  0 auto;
+    }
+    .box-item{
+      width: 100%;
+      height: 100px;
+      background: #aaa;
+    }
+    .close{
+      width: 20px;
+      height: 20px;
+    }
+  </style>    
+</head>
+<body>
+  <div class="box">
+  </div>
+  <button onclick="cartRefalsh()">cartRefalsh</button>
+  <script>
+
+    var box = document.getElementsByClassName('box')[0]
+    var btn = document.getElementsByClassName('close')
+    var totalPrice = 0
+    var cartData = [{
+      name: 'pen',
+      price: 11,
+      count: 20,
+    },
+    {
+      name: 'wawa',
+      price: 22,
+      count: 10,
+    },
+    {
+      name: 'paper',
+      price: 2,
+      count: 200,
+    },
+    {
+      name: 'yifu',
+      price: 50,
+      count: 5,
+    }]
+
+
+    function cartGet(name){
+      for (let i = 0; i < cartData.length; i++) { 
+        // newChild(cartData[i],i)
+        if(name == cartData[i].name){cartData[i].count++}
+        else{newChild(cartData)}
+      }
+      sum()
+    }
+
+
+    function newChild(data,index){
+      var parent = box
+      var item = document.createElement('div')
+      var deleteBtn = document.createElement('button')
+      var count = document.createElement('span')
+
+      item.innerHTML = data.name
+      deleteBtn.innerHTML = '-'
+      count.innerHTML = data.count
+      item.className = 'box-item'
+      // item.index = index
+
+      item.appendChild(count)
+      item.appendChild(deleteBtn)
+      box.appendChild(item)
+    }
+
+
+    function sum(){
+      for (let i = 0; i < cartData.length; i++) {
+        var itemSum = 0
+        itemSum = cartData[i].price * cartData[i].count
+        totalPrice = totalPrice + itemSum
+      }
+    }
+
+
+    function btnClose(){
+      for (let i = 0; i < btn.length; i++){
+        btn[i].addEventListener('click',()=>{
+          console.log(event)
+        })
+      }
+    }
+
+    
+    window.onload = ()=>{
+      btnClose()
+    }
+  </script>
+</body>
+</html>
